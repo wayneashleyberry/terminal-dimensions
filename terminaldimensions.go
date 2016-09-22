@@ -1,4 +1,4 @@
-package terminalwidth
+package terminaldimensions
 
 import (
 	"os"
@@ -7,8 +7,8 @@ import (
 	"strings"
 )
 
-// TerminalWidth gives you the width of the terminal
-func TerminalWidth() (uint, error) {
+// Width gives you the width of the terminal
+func Width() (uint, error) {
 	cmd := exec.Command("stty", "size")
 	cmd.Stdin = os.Stdin
 	out, outputErr := cmd.Output()
