@@ -7,35 +7,42 @@ import (
 	"strings"
 )
 
-func parts() ([]string, error) {
+func size() (string, error) {
 	cmd := exec.Command("stty", "size")
 	cmd.Stdin = os.Stdin
 	out, err := cmd.Output()
-	return strings.Split(string(out), " "), err
+	return string(out), err
+}
+
+func parse(input string) (uint, uint, error) {
+	parts := strings.Split(input, " ")
+	x, err := strconv.Atoi(parts[0])
+	if err != nil {
+		return 0, 0, err
+	}
+	y, err := strconv.Atoi(strings.Replace(parts[1], "\n", "", 1))
+	if err != nil {
+		return 0, 0, err
+	}
+	return uint(x), uint(y), nil
 }
 
 // Width gives you the width of the terminal
 func Width() (uint, error) {
-	parts, err := parts()
+	output, err := size()
 	if err != nil {
 		return 0, err
 	}
-	x, err := strconv.Atoi(strings.Replace(parts[1], "\n", "", -1))
-	if err != nil {
-		return 0, err
-	}
-	return uint(x), err
+	_, width, err := parse(output)
+	return width, err
 }
 
 // Height gives you the height of the terminal
 func Height() (uint, error) {
-	parts, err := parts()
+	output, err := size()
 	if err != nil {
 		return 0, err
 	}
-	x, err := strconv.Atoi(parts[0])
-	if err != nil {
-		return 0, err
-	}
-	return uint(x), err
+	height, _, err := parse(output)
+	return height, err
 }
