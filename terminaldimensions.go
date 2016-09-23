@@ -1,3 +1,5 @@
+// Package terminaldimensions provides simple helper functions to get the width
+// and height of a users terminal.
 package terminaldimensions
 
 import (
@@ -27,7 +29,7 @@ func parse(input string) (uint, uint, error) {
 	return uint(x), uint(y), nil
 }
 
-// Width gives you the width of the terminal
+// Width return the width of the terminal.
 func Width() (uint, error) {
 	output, err := size()
 	if err != nil {
@@ -37,7 +39,7 @@ func Width() (uint, error) {
 	return width, err
 }
 
-// Height gives you the height of the terminal
+// Height returns the height of the terminal.
 func Height() (uint, error) {
 	output, err := size()
 	if err != nil {
