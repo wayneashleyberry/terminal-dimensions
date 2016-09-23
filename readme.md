@@ -10,10 +10,15 @@ go get github.com/wayneashleyberry/terminal-dimensions
 ```go
 package main
 
-import terminal "github.com/wayneashleyberry/terminal-dimensions"
+import (
+	"fmt"
+
+	terminal "github.com/wayneashleyberry/terminal-dimensions"
+)
 
 func main() {
 	x, _ := terminal.Width()
 	y, _ := terminal.Height()
+	fmt.Printf("Terminal is %d wide and %d high", x, y)
 }
 ```
