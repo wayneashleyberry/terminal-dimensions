@@ -1,0 +1,9 @@
+# This file configures the golangci-lint command which is run during
+# the build pipeline on wercker. It will also be used when you run the
+# linter locally giving us consistent results across machines.
+# For more information, see: https://git.io/fplQG
+run:
+  tests: false
+
+linters:
+  enable-all: true
