@@ -1,4 +1,4 @@
-[![GoDoc](https://godoc.org/github.com/wayneashleyberry/terminal-dimensions?status.svg)](https://godoc.org/github.com/wayneashleyberry/terminal-dimensions)
+[![Go Reference](https://pkg.go.dev/badge/github.com/wayneashleyberry/terminal-dimensions.svg)](https://pkg.go.dev/github.com/wayneashleyberry/terminal-dimensions)
 [![Go Report Card](https://goreportcard.com/badge/github.com/wayneashleyberry/terminal-dimensions)](https://goreportcard.com/report/github.com/wayneashleyberry/terminal-dimensions)
 [![Build Status](https://travis-ci.org/wayneashleyberry/terminal-dimensions.svg?branch=master)](https://travis-ci.org/wayneashleyberry/terminal-dimensions)
 [![Coverage Status](https://coveralls.io/repos/github/wayneashleyberry/terminal-dimensions/badge.svg?branch=master)](https://coveralls.io/github/wayneashleyberry/terminal-dimensions?branch=master)
@@ -18,8 +18,11 @@ import (
 )
 
 func main() {
-	x, _ := terminal.Width()
-	y, _ := terminal.Height()
+	x, y, err := terminal.Dimensions()
+	if err != nil {
+		panic(err)
+	}
+
 	fmt.Printf("Terminal is %d wide and %d high", x, y)
 }
 ```
