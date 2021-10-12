@@ -1,6 +1,6 @@
-[![GoDoc](https://godoc.org/github.com/wayneashleyberry/terminal-dimensions?status.svg)](https://godoc.org/github.com/wayneashleyberry/terminal-dimensions)
+[![Go](https://github.com/wayneashleyberry/terminal-dimensions/actions/workflows/go.yml/badge.svg)](https://github.com/wayneashleyberry/terminal-dimensions/actions/workflows/go.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/wayneashleyberry/terminal-dimensions.svg)](https://pkg.go.dev/github.com/wayneashleyberry/terminal-dimensions)
 [![Go Report Card](https://goreportcard.com/badge/github.com/wayneashleyberry/terminal-dimensions)](https://goreportcard.com/report/github.com/wayneashleyberry/terminal-dimensions)
-[![GolangCI](https://golangci.com/badges/github.com/wayneashleyberry/terminal-dimensions.svg)](https://golangci.com/r/github.com/wayneashleyberry/terminal-dimensions)
 
 ```sh
 go get github.com/wayneashleyberry/terminal-dimensions
