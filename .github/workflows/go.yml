@@ -1,8 +1,8 @@
 name: Go
 on: [push]
 jobs:
-  go:
-    name: test (${{ matrix.go }})
+  test:
+    name: Test (${{ matrix.go }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -15,3 +15,13 @@ jobs:
       - uses: actions/checkout@v2
 
       - run: go test -race ./...
+
+  golangci:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v2
+        with:
+          version: latest
