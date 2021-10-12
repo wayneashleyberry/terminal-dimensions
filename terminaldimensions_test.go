@@ -1,6 +1,9 @@
 package terminaldimensions
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func Test_parse(t *testing.T) {
 	type args struct {
@@ -39,4 +42,13 @@ func Test_parse(t *testing.T) {
 			}
 		})
 	}
+}
+
+func ExampleDimensions() {
+	x, y, err := Dimensions()
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("Terminal is %d wide and %d high", x, y)
 }
