@@ -29,7 +29,22 @@ func parse(input string) (uint, uint, error) {
 	return uint(x), uint(y), nil
 }
 
-// Width return the width of the terminal.
+// Dimensions returns the width and height of the terminal.
+func Dimensions() (uint, uint, error) {
+	output, err := size()
+	if err != nil {
+		return 0, 0, err
+	}
+
+	height, width, err := parse(output)
+	if err != nil {
+		return 0, 0, err
+	}
+
+	return width, height, nil
+}
+
+// Width returns the width of the terminal.
 func Width() (uint, error) {
 	output, err := size()
 	if err != nil {

@@ -16,8 +16,11 @@ import (
 )
 
 func main() {
-	x, _ := terminal.Width()
-	y, _ := terminal.Height()
+	x, y, err := terminal.Dimensions()
+	if err != nil {
+		panic(err)
+	}
+
 	fmt.Printf("Terminal is %d wide and %d high", x, y)
 }
 ```
